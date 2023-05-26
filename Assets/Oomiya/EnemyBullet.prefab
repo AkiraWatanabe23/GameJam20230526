@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletSpeed: 1
   _player: {fileID: 2213786095184006158, guid: c63af7415d71b804f98a6c676785ac3f, type: 3}
+  _lifeTime: 8
 --- !u!61 &-53677424607411133
 BoxCollider2D:
   m_ObjectHideFlags: 0
