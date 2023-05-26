@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class Enemy : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        transform.DOLocalMove(new Vector3(UnityEngine.Random.Range(-7,7), 3f, 0), 3f)
+   .SetLoops(-1, LoopType.Yoyo);
         FireRate = _fireRate;
         RespownTimer = _respownTimer;
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -32,6 +35,8 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+       
+
         FireRate -= Time.deltaTime;
         EnemyRespown();
 
