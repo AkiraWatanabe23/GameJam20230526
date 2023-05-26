@@ -2,13 +2,22 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] GameObject _enemyBullet;
+
     [SerializeField] float _respownTimer;
+    float RespownTimer;
+
+    [SerializeField] float _fireRate;
+    float FireRate;
+
     BoxCollider2D _collider;
     SpriteRenderer _spriteRenderer;
-    bool _timerStart;
+    public bool _timerStart;
 
     void Start()
     {
+        FireRate = _fireRate;
+        RespownTimer = _respownTimer;
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _collider = GetComponent<BoxCollider2D>();
     }
@@ -25,14 +34,32 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if( _timerStart )
+        FireRate -= Time.deltaTime;
+        EnemyRespown();
+
+        if(FireRate < 0 && !_timerStart)
         {
-            _respownTimer -= Time.deltaTime;
-            if( _respownTimer < 0 )
+            Instantiate(_enemyBullet, new Vector2(transform.position.x,
+                                                  transform.position.y - transform.localScale.y), Quaternion.identity);
+            FireRate = _fireRate;
+        }
+    }
+
+    /// <summary>
+    /// 敵をリスポーンさせる
+    /// </summary>
+    void EnemyRespown()
+    {
+        if (_timerStart)
+        {
+            Debug.Log("タイマースタート");
+            RespownTimer -= Time.deltaTime;
+            if (RespownTimer < 0)
             {
                 _collider.enabled = true;
                 _spriteRenderer.enabled = true;
                 _timerStart = false;
+                RespownTimer = _respownTimer;
             }
         }
     }
