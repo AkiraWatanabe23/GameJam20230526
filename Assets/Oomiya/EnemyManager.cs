@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Xml;
 using UnityEditor.Timeline;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EnemyManager : MonoBehaviour
 {
-    int _howMany = 100;
     [SerializeField] GameObject _bullet;
     [SerializeField] GameObject _enemy;
-    private List<GameObject> _enemies;
+    private List<GameObject> _enemies = new List<GameObject>();
     public List<GameObject> Enemies { get => _enemies; set { _enemies = value; }}
 
     public static EnemyManager _instance;
@@ -29,7 +29,7 @@ public class EnemyManager : MonoBehaviour
     {
         for (int i = 0; i < 5; i++)
         {
-            GameObject tmp = Instantiate(_enemy, new Vector2(-8 + i * 3, 3), Quaternion.identity);
+            Enemies.Add(Instantiate(_enemy, new Vector2(-8 + i * 3, 3), Quaternion.identity));
         }
     }
 }
