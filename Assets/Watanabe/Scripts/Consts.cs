@@ -4,6 +4,8 @@ namespace Constants
 {
     public static class Consts
     {
+        public static int MaxLife = 3;
+
         public static readonly Dictionary<SceneNames, string> Scenes = new()
         {
             [SceneNames.TITLE_SCENE] = "Title",

@@ -8,8 +8,7 @@ public class PlayerMove : MonoBehaviour
 
     private Rigidbody2D _rb2d = default;
 
-    private Vector3 _position = Vector3.zero;
-   
+    public int LifeCount { get => _lifeCount; set => _lifeCount = value; }
 
     private void Start()
     {
@@ -23,7 +22,6 @@ public class PlayerMove : MonoBehaviour
         var hol = Input.GetAxisRaw("Horizontal");
 
         _rb2d.velocity = new Vector2(hol * _moveSpeed, _rb2d.velocity.y);
-        _position = _rb2d.position;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
