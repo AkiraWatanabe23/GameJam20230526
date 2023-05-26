@@ -26,9 +26,7 @@ public class Enemy : MonoBehaviour
     {
         if(other.gameObject.CompareTag("PlayerBullet"))
         {
-            _collider.enabled = false;
-            _spriteRenderer.enabled = false;
-            _timerStart = true;
+            EnabledFalse();
         }
     }
 
@@ -56,11 +54,23 @@ public class Enemy : MonoBehaviour
             RespownTimer -= Time.deltaTime;
             if (RespownTimer < 0)
             {
-                _collider.enabled = true;
-                _spriteRenderer.enabled = true;
-                _timerStart = false;
+                EnabledTrue();
                 RespownTimer = _respownTimer;
             }
         }
+    }
+
+    void EnabledFalse()
+    {
+        _timerStart = true;
+        _collider.enabled = false;
+        _spriteRenderer.enabled = false;
+    }
+
+    void EnabledTrue()
+    {
+        _timerStart = false;
+        _collider.enabled = true;
+        _spriteRenderer.enabled = true;
     }
 }
