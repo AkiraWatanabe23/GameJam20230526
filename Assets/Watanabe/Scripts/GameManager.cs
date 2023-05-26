@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public float Timer => _timer;
     public int Score => _score;
 
+    public bool IsGameStart { get => _isGameStart; set => _isGameStart = value; }
+
     public static GameManager Instance => _instance;
 
     private void Awake()
