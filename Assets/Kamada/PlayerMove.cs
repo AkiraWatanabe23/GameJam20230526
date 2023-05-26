@@ -7,8 +7,6 @@ public class PlayerMove : MonoBehaviour
 
     private Rigidbody2D _rb2d = default;
    
-    float rotaion_speed = 0;
-   
 
     private void Start()
     {
@@ -21,14 +19,7 @@ public class PlayerMove : MonoBehaviour
     private void Update()
     {
         var hol = Input.GetAxisRaw("Horizontal");
-        var ver = Input.GetAxisRaw("Vertical");
 
-        _rb2d.velocity = new Vector2(hol * _moveSpeed, ver * _moveSpeed);
-
-        if (Input.GetMouseButtonDown(0)) 
-        {
-            rotaion_speed = 20.0f;
-        }
-        transform.Rotate(0,0, rotaion_speed);
+        _rb2d.velocity = new Vector2(hol * _moveSpeed, _rb2d.velocity.y);
     }
 }
