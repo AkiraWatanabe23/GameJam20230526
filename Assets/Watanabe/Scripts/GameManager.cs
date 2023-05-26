@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private float _timer = 100f;
+    [SerializeField] private float _timer = 60f;
     [SerializeField] private int _score = 0;
 
     [SerializeField] private UnityEvent _onGameOver = default;
@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance = default;
 
     public float Timer => _timer;
+    public int Score => _score;
 
     public static GameManager Instance => _instance;
 
