@@ -16,7 +16,6 @@ public class PlayerMove : MonoBehaviour
         _rb2d.gravityScale = 0f;
     }
 
-
     private void Update()
     {
         var hol = Input.GetAxisRaw("Horizontal");
