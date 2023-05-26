@@ -18,4 +18,12 @@ public class PlayerAttack : MonoBehaviour
     {
         transform.position += new Vector3(0, Time.deltaTime * m_initialSpeed); 
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.TryGetComponent(out Enemy enemy))
+        {
+            Destroy(enemy.gameObject);
+        }
+    }
 }
