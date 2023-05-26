@@ -18,9 +18,10 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
+        var ver = Input.GetAxisRaw("Vertical");
         var hol = Input.GetAxisRaw("Horizontal");
 
-        _rb2d.velocity = new Vector2(hol * _moveSpeed, _rb2d.velocity.y);
+        _rb2d.velocity = new Vector2(hol * _moveSpeed, ver * _moveSpeed).normalized;
 
         if (transform.position.x > 8f)
         {
@@ -31,6 +32,9 @@ public class PlayerMove : MonoBehaviour
         {
             transform.position = new Vector3(-7.9f, transform.position.y);
         }
+
+        if (transform.position.y > 4.7f) transform.position = new Vector3(transform.position.x, 4.6f);
+        if (transform.position.y < -4.7f) transform.position = new Vector3(transform.position.x, -4.6f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
