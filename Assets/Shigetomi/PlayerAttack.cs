@@ -5,7 +5,6 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] GameObject Bullet;
     [SerializeField] Transform[] _muzzles = new Transform[2];
     [SerializeField] private BulletType _type = BulletType.Normal;
-    [SerializeField] private RandomSweep _sweep = default;
 
     private bool _isSweepAway = false;
     private bool _isPowerUp = false;
@@ -31,10 +30,6 @@ public class PlayerAttack : MonoBehaviour
         }
         else if (Input.GetMouseButtonDown(1) && _isSweepAway)
         {
-            if (_sweep)
-            {
-                _sweep.SettingPos();
-            }
             _isSweepAway = false;
         }
 
