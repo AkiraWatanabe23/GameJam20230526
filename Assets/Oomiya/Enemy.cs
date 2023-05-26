@@ -1,18 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] float _respownTimer;
+    BoxCollider2D _collider;
+    SpriteRenderer _spriteRenderer;
+    bool _timerStart;
+
     void Start()
     {
-        
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _collider = GetComponent<BoxCollider2D>();
     }
 
-    // Update is called once per frame
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.CompareTag("PlayerBullet"))
+        {
+            _collider.enabled = false;
+            _spriteRenderer.enabled = false;
+            _timerStart = true;
+        }
+    }
+
     void Update()
     {
-        
+        if( _timerStart )
+        {
+            _respownTimer -= Time.deltaTime;
+            if( _respownTimer < 0 )
+            {
+                _collider.enabled = true;
+                _spriteRenderer.enabled = true;
+                _timerStart = false;
+            }
+        }
     }
 }
