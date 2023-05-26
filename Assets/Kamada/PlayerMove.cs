@@ -7,6 +7,8 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private int _lifeCount = 3;
 
     private Rigidbody2D _rb2d = default;
+
+    private Vector3 _position = Vector3.zero;
    
 
     private void Start()
@@ -21,9 +23,10 @@ public class PlayerMove : MonoBehaviour
         var hol = Input.GetAxisRaw("Horizontal");
 
         _rb2d.velocity = new Vector2(hol * _moveSpeed, _rb2d.velocity.y);
+        _position = _rb2d.position;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.TryGetComponent(out Enemy enemy))
         {
