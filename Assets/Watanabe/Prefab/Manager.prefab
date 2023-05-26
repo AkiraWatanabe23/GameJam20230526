@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2313fe7827e9b024ea0c26da66266a0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timer: 100
   _score: 100
   _onGameOver:
     m_PersistentCalls:
@@ -75,5 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee84d1421f7dfb41a2f23ff3b9f821a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _manager: {fileID: 1727733662265996216}
+  _player: {fileID: 0}
   _timerText: {fileID: 0}
+  _lifeText: {fileID: 0}
+  _scoreText: {fileID: 0}
