@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private float _timer = 100f;
     [SerializeField] private int _score = 0;
+
+    [SerializeField] private UnityEvent _onGameOver = default;
 
     [Header("Debug")]
     [SerializeField] private bool _isDebug = false;
@@ -22,11 +25,6 @@ public class GameManager : MonoBehaviour
         _instance = this;
     }
 
-    private void Start()
-    {
-
-    }
-
     private void Update()
     {
         if (_isGameStart)
@@ -36,6 +34,7 @@ public class GameManager : MonoBehaviour
             if (_timer < 0)
             {
                 _isGameOver = true;
+                ResultSceneManager.ResultScore = _score;
             }
         }
     }
@@ -43,5 +42,15 @@ public class GameManager : MonoBehaviour
     public void GameStart()
     {
         _isGameStart = true;
+    }
+
+    public void AddScore(int value)
+    {
+        _score += value;
+    }
+
+    public void LoadToResult()
+    {
+        ResultSceneManager.ResultScore = _score;
     }
 }
