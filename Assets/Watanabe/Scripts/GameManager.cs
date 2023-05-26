@@ -27,14 +27,13 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (_isGameStart)
+        if (_isGameStart && !_isGameOver)
         {
             _timer -= Time.deltaTime;
 
             if (_timer < 0)
             {
-                _isGameOver = true;
-                ResultSceneManager.ResultScore = _score;
+                GameOver();
             }
         }
     }
@@ -49,8 +48,10 @@ public class GameManager : MonoBehaviour
         _score += value;
     }
 
-    public void LoadToResult()
+    public void GameOver()
     {
+        _isGameOver = true;
         ResultSceneManager.ResultScore = _score;
+        _onGameOver?.Invoke();
     }
 }
