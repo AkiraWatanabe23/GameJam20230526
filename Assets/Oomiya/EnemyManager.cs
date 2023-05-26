@@ -7,8 +7,9 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     [SerializeField] GameObject _enemy;
-    
-    
+    private List<GameObject> _enemies;
+    public List<GameObject> Enemies { get => _enemies; set { _enemies = value; }}
+
     public static EnemyManager _instance;
 
     private void Awake()
@@ -26,7 +27,7 @@ public class EnemyManager : MonoBehaviour
     {
         for(int i = 0; i < 5; i++)
         {
-            Instantiate(_enemy, new Vector2(-8 + i * 4, 3), Quaternion.identity);
+            _enemies.Add(Instantiate(_enemy, new Vector2(-8 + i * 4, 3), Quaternion.identity));
         }
     }
 
