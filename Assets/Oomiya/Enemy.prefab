@@ -101,7 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyBullet: {fileID: 5370608350129997682, guid: 38d57a6dce8b37b459fa832dadfcd505, type: 3}
   _respownTimer: 4
-  _fireRate: 1
+  _fireRate: 0.5
+  _timerStart: 0
 --- !u!61 &3496830659391377194
 BoxCollider2D:
   m_ObjectHideFlags: 0

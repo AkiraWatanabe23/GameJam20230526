@@ -29,7 +29,7 @@ public class EnemyManager : MonoBehaviour
     {
         for (int i = 0; i < 5; i++)
         {
-            GameObject tmp = Instantiate(_enemy, new Vector2(-8 + i * 4, 3), Quaternion.identity);
+            GameObject tmp = Instantiate(_enemy, new Vector2(-8 + i * 3, 3), Quaternion.identity);
         }
     }
 }
