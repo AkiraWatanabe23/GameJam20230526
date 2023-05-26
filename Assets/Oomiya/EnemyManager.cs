@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    int _howMany = 100;
+    [SerializeField] GameObject _bullet;
     [SerializeField] GameObject _enemy;
     private List<GameObject> _enemies;
     public List<GameObject> Enemies { get => _enemies; set { _enemies = value; }}
@@ -25,14 +27,9 @@ public class EnemyManager : MonoBehaviour
     }
     void Start()
     {
-        for(int i = 0; i < 5; i++)
+        for (int i = 0; i < 5; i++)
         {
-            _enemies.Add(Instantiate(_enemy, new Vector2(-8 + i * 4, 3), Quaternion.identity));
+            GameObject tmp = Instantiate(_enemy, new Vector2(-8 + i * 4, 3), Quaternion.identity);
         }
-    }
-
-    void Update()
-    {
-        
     }
 }
