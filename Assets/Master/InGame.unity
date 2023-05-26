@@ -412,6 +412,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8997061145451602904, guid: 506ddce717418fb43bd6b467b7006288, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 23d0ecdcbe749e04e8a82f99716a78aa, type: 3}
     - target: {fileID: 8997061145451602906, guid: 506ddce717418fb43bd6b467b7006288, type: 3}
       propertyPath: m_Name
       value: Score
@@ -1020,6 +1024,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5389536354467036321, guid: 08bbfead4109e924dbbb540894634b75, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 23d0ecdcbe749e04e8a82f99716a78aa, type: 3}
     - target: {fileID: 5389536354467036326, guid: 08bbfead4109e924dbbb540894634b75, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1189,7 +1197,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 23d0ecdcbe749e04e8a82f99716a78aa, type: 3}
     m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
