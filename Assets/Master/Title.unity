@@ -583,7 +583,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -538
   m_Sprite: {fileID: 21300000, guid: cc7d1daa412e55e49b7f1d43c2257080, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -868,7 +868,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Title
+  m_Text: "\u9280\u6CB3\u5BFE\u6226"
 --- !u!222 &1760799788
 CanvasRenderer:
   m_ObjectHideFlags: 0

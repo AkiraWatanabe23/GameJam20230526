@@ -10,8 +10,8 @@ public class LifeUp : ItemBase
             if (player.LifeCount < Consts.MaxLife)
             {
                 player.LifeCount++;
-                Destroy(gameObject);
             }
+            Destroy(gameObject);
         }
     }
 }
