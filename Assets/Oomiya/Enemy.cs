@@ -60,14 +60,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void EnabledFalse()
+    public void EnabledFalse()
     {
         _timerStart = true;
         _collider.enabled = false;
         _spriteRenderer.enabled = false;
     }
 
-    void EnabledTrue()
+    public void EnabledTrue()
     {
         _timerStart = false;
         _collider.enabled = true;
