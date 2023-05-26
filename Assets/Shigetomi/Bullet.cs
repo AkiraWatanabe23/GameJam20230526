@@ -41,6 +41,14 @@ public class Bullet : MonoBehaviour
             {
                 _count++;
             }
+            GameManager.Instance.AddScore(10);
+        }
+        else if (collision.gameObject.TryGetComponent(out EnemyBullet bullet))
+        {
+            _player.Spawner.ItemSpawn();
+
+            Destroy(bullet.gameObject);
+            Destroy(gameObject);
         }
     }
 }

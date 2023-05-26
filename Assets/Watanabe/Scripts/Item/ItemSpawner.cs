@@ -3,11 +3,9 @@ using UnityEngine;
 public class ItemSpawner : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed = 1f;
-    [SerializeField] private float _interval = 1f;
 
     [SerializeField] private GameObject[] _items = new GameObject[4];
 
-    private float _timer = 0f;
     private float _dir = 1f;
 
     private void Update()
@@ -22,14 +20,12 @@ public class ItemSpawner : MonoBehaviour
         {
             _dir = 1f;
         }
+    }
 
-        _timer += Time.deltaTime;
-        if (_timer > _interval)
-        {
-            int randomIndex = Random.Range(0, _items.Length);
+    public void ItemSpawn()
+    {
+        int randomIndex = Random.Range(0, _items.Length);
 
-            Instantiate(_items[randomIndex], transform.position, Quaternion.identity);
-            _timer = 0f;
-        }
+        Instantiate(_items[randomIndex], transform.position, Quaternion.identity);
     }
 }
