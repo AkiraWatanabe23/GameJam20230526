@@ -21,11 +21,21 @@ public class PlayerMove : MonoBehaviour
         var hol = Input.GetAxisRaw("Horizontal");
 
         _rb2d.velocity = new Vector2(hol * _moveSpeed, _rb2d.velocity.y);
+
+        if (transform.position.x > 8f)
+        {
+            transform.position = new Vector3(7.9f, transform.position.y);
+        }
+
+        if (transform.position.x < -8f)
+        {
+            transform.position = new Vector3(-7.9f, transform.position.y);
+        }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out Enemy enemy))
+        if (collision.gameObject.TryGetComponent(out EnemyBullet bullet))
         {
             _lifeCount--;
 

@@ -20,14 +20,16 @@ public class PlayerAttack : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            if (_isPowerUp)
+            if (!_isPowerUp)
             {
-                Instantiate(Bullet, _muzzles[0].position, Quaternion.identity);
+                var bullet = Instantiate(Bullet, _muzzles[0].position, new Quaternion(0, 0, 90, 0));
+
+                bullet.transform.rotation = new Quaternion(0, 0, 90f, 0);
             }
             else
             {
-                Instantiate(Bullet, _muzzles[0].position, Quaternion.identity);
-                Instantiate(Bullet, _muzzles[1].position, Quaternion.identity);
+                Instantiate(Bullet, _muzzles[0].position, new Quaternion(0, 0, 90, 0));
+                Instantiate(Bullet, _muzzles[1].position, new Quaternion(0, 0, 90, 0));
             }
         }
         else if (Input.GetMouseButtonDown(1) && _isSweepAway)

@@ -4,6 +4,7 @@ using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private int _score = 0;
+    [SerializeField] private PlayerMove _player = default;
 
     [SerializeField] private UnityEvent _onGameOver = default;
 
@@ -28,11 +29,17 @@ public class GameManager : MonoBehaviour
         _instance = this;
     }
 
+    private void Start()
+    {
+        _score = 0;
+    }
+
     private void Update()
     {
         if (_isGameStart && !_isGameOver)
         {
             _timer -= Time.deltaTime;
+            Debug.Log(_timer);
 
             if (_timer < 0)
             {
@@ -54,7 +61,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         _isGameOver = true;
-        ResultSceneManager.ResultScore = _score;
+        ResultSceneManager.ResultScore = _score + (_player.LifeCount * 50);
         _onGameOver?.Invoke();
     }
 }

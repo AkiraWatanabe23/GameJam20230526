@@ -30,8 +30,6 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out Enemy enemy))
         {
-            Destroy(enemy.gameObject);
-
             if (_player.Type == BulletType.Normal ||
                 _player.Type == BulletType.Penetration && _count < 2)
             {
@@ -45,7 +43,12 @@ public class Bullet : MonoBehaviour
         }
         else if (collision.gameObject.TryGetComponent(out EnemyBullet bullet))
         {
-            _player.Spawner.ItemSpawn();
+            int num = Random.Range(0, 100);
+
+            if (0 <= num && num <= 20)
+            {
+                _player.Spawner.ItemSpawn();
+            }
 
             Destroy(bullet.gameObject);
             Destroy(gameObject);
