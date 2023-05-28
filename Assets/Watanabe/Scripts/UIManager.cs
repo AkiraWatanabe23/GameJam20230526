@@ -31,8 +31,8 @@ public class UIManager : MonoBehaviour
             _timerText.gameObject.SetActive(false);
         }
 
-        _lifeText.text = _player.LifeCount.ToString();
-        _scoreText.text = _manager.Score.ToString();
+        _lifeText.text = "LIFE : " + _player.LifeCount.ToString();
+        _scoreText.text = "SCORE : " + _manager.Score.ToString();
     }
 
     private IEnumerator StartCount()
