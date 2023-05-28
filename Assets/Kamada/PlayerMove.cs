@@ -21,7 +21,7 @@ public class PlayerMove : MonoBehaviour
         var ver = Input.GetAxisRaw("Vertical");
         var hol = Input.GetAxisRaw("Horizontal");
 
-        _rb2d.velocity = new Vector2(hol * _moveSpeed, ver * _moveSpeed).normalized;
+        _rb2d.velocity = new Vector2(hol * _moveSpeed, ver * _moveSpeed);
 
         if (transform.position.x > 8f)
         {

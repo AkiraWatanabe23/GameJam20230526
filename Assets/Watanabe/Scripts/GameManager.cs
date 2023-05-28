@@ -39,7 +39,6 @@ public class GameManager : MonoBehaviour
         if (_isGameStart && !_isGameOver)
         {
             _timer -= Time.deltaTime;
-            Debug.Log(_timer);
 
             if (_timer < 0)
             {

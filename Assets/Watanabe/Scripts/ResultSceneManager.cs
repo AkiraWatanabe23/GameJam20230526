@@ -14,10 +14,10 @@ public class ResultSceneManager : MonoBehaviour
 
     private void Start()
     {
-        _resultScoreText.text = _resultScore.ToString("F0");
+        PlayCounter();
     }
 
-    public void PlayCounter()
+    private void PlayCounter()
     {
         Debug.Log("start");
         StartCoroutine(Count());
